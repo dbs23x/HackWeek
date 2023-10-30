@@ -45,7 +45,7 @@
       become_user: ubuntu
       git:
         repo: 'https://github.com/codecrafthackweek/backend.git'
-        dest: /home/ubuntu/app
+        dest: /home/ubuntu/app/backend
         version: main
         accept_hostkey: yes
         

@@ -40,11 +40,6 @@
         state: started
         enabled: yes
        
-    - name: Copiar o Dockerfile do repositório
-      copy:
-        src: Dockerfile
-        dest: /home/ubuntu/app
-
     - name: Clonar repositório Git
       become: yes
       become_user: ubuntu
@@ -53,6 +48,11 @@
         dest: /home/ubuntu/app
         version: main
         accept_hostkey: yes
+        
+    - name: Copiar o Dockerfile do repositório
+      copy:
+        src: Dockerfile
+        dest: /home/ubuntu/app
         
     - name: Construir a imagem Docker
       command: docker build -t api-csharp .
